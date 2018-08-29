@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * Receive the events from the CDC(Change Data Capture) tools - Debezium. As this tool is based on Kafka, this class
  * wrap a Kafka Consumer object.
- * https://github.com/abhirockzz/debezium-javaee-test-drive
+ * https://github.com/abhirockzz/ -javaee-test-drive
  */
 @PropertySource("classpath:KafkaConsumer.properties")
 public class CDCReceiver<K, V> {
