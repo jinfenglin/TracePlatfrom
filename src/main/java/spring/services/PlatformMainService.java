@@ -1,6 +1,11 @@
 package spring.services;
 
-import messageDeliver.CDCReceiver;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import messageDeliver.DebeziumReceiver;
+import messageDeliver.DebeziumEvent;
+import messageDeliver.dbSchema.DbSchema;
+import messageDeliver.gsonDeserializer.DebeziumJsonDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +14,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import java.sql.Time;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 
 /**
  * Entrance of the TracePlatform. The background services will be activated after the application start.
@@ -23,15 +27,14 @@ public class PlatformMainService {
 
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent event) throws Exception {
-        CDCReceiver<String, String> receiver = (CDCReceiver) applicationContext.getBean("cdcReceiver");
+        DebeziumReceiver<String, String> receiver = (DebeziumReceiver) applicationContext.getBean("cdcReceiver");
         while (true) {
-
-            ConsumerRecords<String, String> records = receiver.getRecords();
-            System.out.println(String.format("%s records polled...", records.count()));
-            for (ConsumerRecord record : records) {
-                System.out.println(record.offset() + ": " + record.value());
+            List<DebeziumEvent> eventList = receiver.getEvents();
+            System.out.println(String.format("receiving %s events", eventList.size()));
+            for (DebeziumEvent debeziumEvent : eventList) {
+                DbSchema schema = debeziumEvent.getBeforeAsDbSchema();
+                System.out.println(schema.toString());
             }
-
         }
     }
 }

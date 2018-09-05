@@ -1,17 +1,13 @@
 package spring.config;
 
-import messageDeliver.CDCReceiver;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import java.util.List;
-
 @Configuration
 @EnableWebMvc
-@ComponentScan({"spring.controller", "spring.services"})
+@ComponentScan({"spring.controller", "spring.services","messageDeliver"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
