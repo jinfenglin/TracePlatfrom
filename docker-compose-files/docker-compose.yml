@@ -13,7 +13,7 @@ services:
     links:
      - zookeeper
     environment:
-     - ADVERTISED_HOST_NAME=192.168.0.26
+     - ADVERTISED_HOST_NAME=192.168.0.119
      - ZOOKEEPER_CONNECT=zookeeper:2181
   mysql:
     image: debezium/example-mysql:0.9

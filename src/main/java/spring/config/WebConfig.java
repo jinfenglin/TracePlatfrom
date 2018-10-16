@@ -7,7 +7,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"spring.controller", "spring.services","messageDeliver"})
+@ComponentScan({"spring.controller", "spring.services","messageDeliver","computationEngine"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override

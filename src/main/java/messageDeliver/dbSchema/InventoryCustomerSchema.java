@@ -1,7 +1,8 @@
 package messageDeliver.dbSchema;
 
 /**
- *
+ * An example of concrete Dbschema. The DbSchemas should have getter and setter cause the content of
+ * the object is fulfilled by Gson and should not be created manually.
  */
 public class InventoryCustomerSchema implements DbSchema {
     private int id;

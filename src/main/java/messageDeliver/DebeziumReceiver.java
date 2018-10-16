@@ -47,7 +47,7 @@ public class DebeziumReceiver<K, V> {
                 System.out.println(name);
             }
         } catch (ExecutionException ex) {
-            ex.printStackTrace();
+            //ex.printStackTrace();
             System.out.println(String.format("Kafka is not available, timed out after %s ms", ADMIN_CLIENT_TIMEOUT_MS));
         } catch (InterruptedException e) {
             e.printStackTrace();
