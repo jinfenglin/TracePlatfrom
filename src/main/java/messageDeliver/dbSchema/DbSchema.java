@@ -5,6 +5,13 @@ package messageDeliver.dbSchema;
  * register the schemas by ID
  */
 public interface DbSchema {
-    abstract String getSchemaID();
+    String getSchemaID();
+
+    /**
+     * provide the text content that should be applied to TraceModel in later procedures
+     *
+     * @return
+     */
+    String getTraceInfo();
 
 }

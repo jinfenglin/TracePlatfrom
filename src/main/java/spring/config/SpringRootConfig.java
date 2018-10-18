@@ -1,7 +1,10 @@
 package spring.config;
 
 
-import computationEngine.SparkJobEngine;
+import computationEngine.Model.ModelUpdatePolicy.DummyPolicy;
+import computationEngine.Model.ModelUpdatePolicy.TModelUpdatePolicy;
+import computationEngine.Model.ModelUpdatePolicy.UpdatePolicyType;
+import computationEngine.Model.TraceModelManger;
 import messageDeliver.DebeziumReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
@@ -13,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@PropertySource("classpath:KafkaConsumer.properties")
+@PropertySource({"classpath:KafkaConsumer.properties", "classpath:platform.properties"})
 public class SpringRootConfig {
     @Autowired
     private Environment environment;
@@ -40,4 +43,21 @@ public class SpringRootConfig {
         return executor;
     }
 
+    @Bean
+    TraceModelManger traceModelManger() {
+        UpdatePolicyType policyType = UpdatePolicyType.valueOf(environment.getProperty("traceModelManger.policy"));
+        TModelUpdatePolicy policy = null;
+        switch (policyType) {
+            case DUMMY:
+                policy = new DummyPolicy();
+                break;
+            case CONSTANT:
+                break;
+            case CONDITIONAL:
+                break;
+            case NEW_DATA_DRIVEN:
+                break;
+        }
+        return new TraceModelManger(policy);
+    }
 }

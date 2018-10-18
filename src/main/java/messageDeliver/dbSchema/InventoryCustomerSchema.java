@@ -46,6 +46,11 @@ public class InventoryCustomerSchema implements DbSchema {
     }
 
     @Override
+    public String getTraceInfo() {
+        return toString();
+    }
+
+    @Override
     public String toString() {
         return "InventoryCustomerSchema{" +
                 "id=" + id +

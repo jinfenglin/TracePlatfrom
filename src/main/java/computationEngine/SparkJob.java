@@ -1,6 +1,7 @@
 package computationEngine;
 
 import computationEngine.Model.TraceModel;
+import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -20,10 +21,14 @@ public class SparkJob implements Runnable, Serializable {
     private TraceModel model;
     private List<Artifact> fromArtifacts;
     private List<Artifact> toArtifacts;
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
-    public SparkJob(String jobID, String sparkMasterUrl) {
+    public SparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
         this.sparkMasterUrl = sparkMasterUrl;
         this.jobID = jobID;
+        this.model = model;
+        setFromArtifacts(new ArrayList<>());
+        setToArtifacts(new ArrayList<>());
     }
 
     private SparkSession getSparkSession(String jobID, String masterUrl) {
@@ -61,12 +66,12 @@ public class SparkJob implements Runnable, Serializable {
                 artifactKeyValuePair -> {
                     Artifact fromArtifact = artifactKeyValuePair._2()._1();
                     Artifact toArtifact = artifactKeyValuePair._2()._2();
-                    return new Link(fromArtifact, toArtifact);
+                    double score = this.model.getScore(fromArtifact, toArtifact);
+                    return new Link(fromArtifact, toArtifact, score);
                 }
         );
         return linkRDD;
     }
-
 
 
     @Override
@@ -79,23 +84,21 @@ public class SparkJob implements Runnable, Serializable {
         Artifact t1 = new Artifact("t1");
         Artifact t2 = new Artifact("t2");
         Artifact t3 = new Artifact("t3");
+        ;
+        fromArtifacts.add(f1);
+        fromArtifacts.add(f2);
+        fromArtifacts.add(f3);
 
-        List<Artifact> fromArtifactsList = new ArrayList<>();
-        fromArtifactsList.add(f1);
-        fromArtifactsList.add(f2);
-        fromArtifactsList.add(f3);
+        toArtifacts.add(t1);
+        toArtifacts.add(t2);
+        toArtifacts.add(t3);
 
-        List<Artifact> toArtifactList = new ArrayList<>();
-        toArtifactList.add(t1);
-        toArtifactList.add(t2);
-        toArtifactList.add(t3);
-
-        JavaRDD<Artifact> fromArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(fromArtifactsList);
-        JavaRDD<Artifact> toArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(toArtifactList);
+        JavaRDD<Artifact> fromArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getFromArtifacts());
+        JavaRDD<Artifact> toArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getToArtifacts());
 
 
         JavaRDD<Link> linkRDD = genCandidateTraceLinks(fromArtifacts, toArtifacts);
-        linkRDD.collect().forEach(x -> System.out.println(x));
+        linkRDD.collect().forEach(x -> logger.debug(x.toString()));
         sparkSession.stop();
     }
 

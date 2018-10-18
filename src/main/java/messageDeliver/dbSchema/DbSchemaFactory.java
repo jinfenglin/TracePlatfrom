@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DbSchemaFactory {
-    private Map<String, Class<? extends DbSchema>> schemaIdToType; // Map scheam ID to a
+    private Map<String, Class<? extends DbSchema>> schemaIdToType; // Map scheam ID to one type of schema
     Gson gson;
     private static DbSchemaFactory factory;
 
