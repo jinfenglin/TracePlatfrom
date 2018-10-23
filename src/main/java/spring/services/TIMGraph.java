@@ -1,6 +1,7 @@
 package spring.services;
 
 import javafx.util.Pair;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.util.*;
  * TIM(Trace Information Model) record the relationships among the types of artifacts.
  * It provide information about which 2 types of artifacts may have trace links.
  */
+
 public class TIMGraph {
     Set<String> TIMNode;
     Map<String, Set<String>> TIMLink; //Undirected graph
@@ -25,9 +27,10 @@ public class TIMGraph {
     public TIMGraph(String TIMFileName) throws IOException {
         TIMNode = new HashSet<>();
         TIMLink = new HashMap<>();
-        InputStream in = getClass().getResourceAsStream(TIMFileName);
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream(TIMFileName);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         String line = null;
+        //Read lines as pairs then construct it as a graph
         List<Pair<String, String>> links = new ArrayList<>();
         while ((line = reader.readLine()) != null) {
             String[] nodes = line.split(",");

@@ -10,6 +10,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.PropertySource;
 
 import java.time.Duration;
@@ -26,13 +27,18 @@ public class DebeziumReceiver<K, V> {
     private KafkaConsumer<K, V> consumer;
     private String pollTimeout;
     private static final int ADMIN_CLIENT_TIMEOUT_MS = 5000;
+    private Gson gson;
+    private Thread publishThread;
+    private EventPublishWorker publishThreadWorker;
+    private ApplicationEventPublisher applicationEventPublisher;
 
-    Gson gson;
 
-    public DebeziumReceiver(String servers, String groupId, String autoCommit, String pollTimout, List<String> topics) {
-        this.pollTimeout = pollTimout;
+    public DebeziumReceiver(String servers, String groupId, String autoCommit, String pollTimeout, List<String> topics,
+                            ApplicationEventPublisher applicationEventPublisher) {
+        this.pollTimeout = pollTimeout;
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.registerTypeAdapter(DebeziumEvent.class, new DebeziumJsonDeserializer()).create();
+        this.applicationEventPublisher = applicationEventPublisher;
 
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
@@ -56,6 +62,10 @@ public class DebeziumReceiver<K, V> {
         consumer = new KafkaConsumer<>(props);
         consumer.subscribe(topics);
         System.out.println("Subscribed to topic " + topics.toString());
+
+        publishThreadWorker = new EventPublishWorker();
+        publishThread = new Thread(publishThreadWorker);
+
     }
 
     private ConsumerRecords<K, V> getRecords() {
@@ -70,4 +80,38 @@ public class DebeziumReceiver<K, V> {
         }
         return events;
     }
+
+    /**
+     * Start a service to announce the events that this class have received
+     */
+    public void startEventPublishService() {
+        publishThread.start();
+    }
+
+    public void stopEventPublishService() {
+        publishThreadWorker.stop();
+    }
+
+    class EventPublishWorker implements Runnable {
+        boolean exitFlag;
+
+        public EventPublishWorker() {
+            exitFlag = true;
+        }
+
+        public void stop() {
+            this.exitFlag = true;
+        }
+
+        @Override
+        public void run() {
+            exitFlag = false;
+            while (!exitFlag) {
+                for (DebeziumEvent event : getEvents()) {
+                    applicationEventPublisher.publishEvent(event);
+                }
+            }
+        }
+    }
 }
+

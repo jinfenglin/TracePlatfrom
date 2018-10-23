@@ -11,9 +11,9 @@ public class DummyPolicy extends TModelUpdatePolicy {
     public void run() {
         exitFlag = false;
         while (!exitFlag) {
-            Logger.getLogger(this.getClass().getName()).info("Dummy policy is running");
             try {
-                Thread.sleep(1000);
+                Logger.getLogger(this.getClass().getName()).debug("Dummy policy is running");
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

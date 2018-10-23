@@ -7,19 +7,29 @@ import computationEngine.Model.ModelUpdatePolicy.UpdatePolicyType;
 import computationEngine.Model.TraceModelManger;
 import messageDeliver.DebeziumReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.*;
+import org.springframework.context.event.ApplicationEventMulticaster;
+import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.env.Environment;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import spring.services.TIMGraph;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 @Configuration
 @PropertySource({"classpath:KafkaConsumer.properties", "classpath:platform.properties"})
+@ComponentScan({"spring.controller", "spring.services", "messageDeliver", "computationEngine"})
 public class SpringRootConfig {
     @Autowired
     private Environment environment;
+
+    @Autowired
+    ApplicationEventPublisher applicationEventPublisher;
 
     @Bean
     @Scope("prototype")
@@ -29,7 +39,7 @@ public class SpringRootConfig {
         String autoCommit = environment.getProperty("enable.auto.commit");
         List<String> topics = Arrays.asList(environment.getProperty("topics").split(","));
         String pollTimeout = environment.getProperty("timeout.poll.seconds");
-        return new DebeziumReceiver(servers, groupId, autoCommit, pollTimeout, topics);
+        return new DebeziumReceiver(servers, groupId, autoCommit, pollTimeout, topics, applicationEventPublisher);
     }
 
 
@@ -60,4 +70,11 @@ public class SpringRootConfig {
         }
         return new TraceModelManger(policy);
     }
+
+    @Bean
+    TIMGraph timGraph() throws IOException {
+        String TIMFileName = environment.getProperty("platform.TIM.fileName");
+        return new TIMGraph(TIMFileName);
+    }
+
 }

@@ -1,6 +1,7 @@
 package computationEngine;
 
 import computationEngine.Model.TraceModel;
+import messageDeliver.DebeziumEvent;
 import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -77,25 +78,9 @@ public class SparkJob implements Runnable, Serializable {
     @Override
     public void run() {
         SparkSession sparkSession = getSparkSession(jobID, sparkMasterUrl);
-        Artifact f1 = new Artifact("f1");
-        Artifact f2 = new Artifact("f2");
-        Artifact f3 = new Artifact("f3");
-
-        Artifact t1 = new Artifact("t1");
-        Artifact t2 = new Artifact("t2");
-        Artifact t3 = new Artifact("t3");
-        ;
-        fromArtifacts.add(f1);
-        fromArtifacts.add(f2);
-        fromArtifacts.add(f3);
-
-        toArtifacts.add(t1);
-        toArtifacts.add(t2);
-        toArtifacts.add(t3);
 
         JavaRDD<Artifact> fromArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getFromArtifacts());
         JavaRDD<Artifact> toArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getToArtifacts());
-
 
         JavaRDD<Link> linkRDD = genCandidateTraceLinks(fromArtifacts, toArtifacts);
         linkRDD.collect().forEach(x -> logger.debug(x.toString()));

@@ -7,15 +7,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class SparkJobEngine {
     @Autowired
-    public TaskExecutor threadPoolTaskExecutor;
+    private TaskExecutor threadPoolTaskExecutor;
+    @Autowired
+    private SparkJobMaker sparkJobMaker;
 
-    public SparkJobEngine()  {
+    public SparkJobEngine() {
 
     }
 
-    public void submit(SparkJob job){
+    public void submit(SparkJob job) {
         threadPoolTaskExecutor.execute(job);
     }
 
-
+    public SparkJobMaker getSparkJobMaker() {
+        return sparkJobMaker;
+    }
 }

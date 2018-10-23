@@ -2,6 +2,7 @@ package messageDeliver;
 
 import messageDeliver.dbSchema.DbSchema;
 import messageDeliver.dbSchema.DbSchemaFactory;
+import org.springframework.context.ApplicationEvent;
 
 /**
  * Convert a Kafka consumer record to an event data structure..
@@ -13,6 +14,7 @@ public class DebeziumEvent {
     private String tableName;
     private String kafkaBrokerId;
     private String connectorName;
+
 
     public String getBefore() {
         return before;
