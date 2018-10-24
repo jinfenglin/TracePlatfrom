@@ -1,9 +1,11 @@
-import computationEngine.DummySparkJob;
+import computationEngine.SparkJobs.DummySparkJob;
 import computationEngine.Model.TraceModel;
 import computationEngine.Model.TraceModelManger;
 import computationEngine.Model.TraceModelType;
-import computationEngine.SparkJob;
-import computationEngine.SparkJobEngine;
+import computationEngine.SparkJobs.LinkPrintSparkJob;
+import computationEngine.SparkJobs.LinkGenerationSparkJob;
+import computationEngine.SparkJobEngine.SparkJobEngine;
+import computationEngine.SparkJobs.SparkJob;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import spring.config.SpringRootConfig;
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 import static java.lang.Thread.sleep;
 
@@ -27,11 +32,19 @@ public class SparkEngineTest {
     private Environment environment;
 
     @Test
-    public void TestCreateAndExecuteSparkJob() throws InterruptedException {
+    public void TestCreateAndExecuteSparkJob() throws InterruptedException, ExecutionException {
         TraceModel model = traceModelManger.getModel(TraceModelType.DUMMY);
         String sparkUrl = environment.getProperty("spark.master");
-        SparkJob exampleJob = new DummySparkJob("exmapleJob", sparkUrl, model);
-        sparkJobEngine.submit(exampleJob);
-        Thread.sleep(10000);//Wait till the spark job finish
+        LinkGenerationSparkJob exampleJob = new DummySparkJob("exmapleJob", sparkUrl, model);
+        LinkPrintSparkJob printJob = new LinkPrintSparkJob(exampleJob);
+        sparkJobEngine.submit(printJob);
+        Future<SparkJob> jobFuture = null;
+        while (true) {
+            if (sparkJobEngine.getRunningJobs().containsKey(printJob)) {
+                jobFuture = sparkJobEngine.getRunningJobs().get(printJob);
+                break;
+            }
+        }
+        jobFuture.get();
     }
 }
