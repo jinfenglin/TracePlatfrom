@@ -1,8 +1,8 @@
-package computationEngine;
+package computationEngine.SparkJobs;
 
+import computationEngine.Artifact;
+import computationEngine.Link;
 import computationEngine.Model.TraceModel;
-import messageDeliver.DebeziumEvent;
-import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -14,16 +14,19 @@ import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 
-public class SparkJob implements Runnable, Serializable {
+public class LinkGenerationSparkJob implements SparkJob {
     private String jobID;
     private String sparkMasterUrl;
     private TraceModel model;
     private List<Artifact> fromArtifacts;
     private List<Artifact> toArtifacts;
+    private SparkSession sparkSession;
+    public JavaRDD<Link> linkRDD;
 
-    public SparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
+    public LinkGenerationSparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
         this.sparkMasterUrl = sparkMasterUrl;
         this.jobID = jobID;
         this.model = model;
@@ -72,17 +75,31 @@ public class SparkJob implements Runnable, Serializable {
         return linkRDD;
     }
 
-
     @Override
-    public void run() {
-        SparkSession sparkSession = getSparkSession(jobID, sparkMasterUrl);
+    public LinkGenerationSparkJob call() throws Exception {
         JavaRDD<Artifact> fromArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getFromArtifacts());
         JavaRDD<Artifact> toArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getToArtifacts());
-
-        JavaRDD<Link> linkRDD = genCandidateTraceLinks(fromArtifacts, toArtifacts);
-        linkRDD.collect().forEach(x -> System.out.println(x.toString()));
-        sparkSession.stop();
+        linkRDD = genCandidateTraceLinks(fromArtifacts, toArtifacts);
+        return this;
     }
+
+    @Override
+    public SparkSession getSession() {
+        if (sparkSession == null) {
+            sparkSession = getSparkSession(jobID, sparkMasterUrl);
+        }
+        return sparkSession;
+    }
+
+    /**
+     * Close the sparkSession. This function should be called manually after link generation task is finished.
+     */
+    public void closeSession() {
+        if (sparkSession != null) {
+            sparkSession.close();
+        }
+    }
+
 
     public TraceModel getModel() {
         return model;

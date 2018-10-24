@@ -5,25 +5,25 @@ import computationEngine.Model.ModelUpdatePolicy.DummyPolicy;
 import computationEngine.Model.ModelUpdatePolicy.TModelUpdatePolicy;
 import computationEngine.Model.ModelUpdatePolicy.UpdatePolicyType;
 import computationEngine.Model.TraceModelManger;
+import computationEngine.SparkJobs.SparkJob;
 import messageDeliver.DebeziumReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.*;
-import org.springframework.context.event.ApplicationEventMulticaster;
-import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.env.Environment;
-import org.springframework.core.task.SimpleAsyncTaskExecutor;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import spring.services.TIMGraph;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Configuration
 @PropertySource({"classpath:KafkaConsumer.properties", "classpath:platform.properties"})
-@ComponentScan({"spring.controller", "spring.services", "messageDeliver", "computationEngine"})
+@ComponentScan({"spring.controller", "spring.services", "messageDeliver", "computationEngine", "computationEngine.SparkJobEngine"})
 public class SpringRootConfig {
     @Autowired
     private Environment environment;
@@ -44,15 +44,9 @@ public class SpringRootConfig {
 
 
     @Bean
-    public TaskExecutor threadPoolTaskExecutor() {
-        boolean waitForTaskCompleteOnShutdown = Boolean.valueOf(environment.getProperty("platform.taskExecutor.waitForTasksToCompleteOnShutdown"));
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(4);
-        executor.setMaxPoolSize(4);
-        executor.setThreadNamePrefix("default_task_executor_thread");
-        executor.initialize();
-        executor.setWaitForTasksToCompleteOnShutdown(waitForTaskCompleteOnShutdown);
-        return executor;
+    public CompletionService threadPoolTaskExecutor() {
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        return new ExecutorCompletionService<SparkJob>(executor);
     }
 
     @Bean

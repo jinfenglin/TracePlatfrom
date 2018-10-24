@@ -1,13 +1,12 @@
-package computationEngine;
+package computationEngine.SparkJobs;
 
 import computationEngine.Artifact;
 import computationEngine.Model.TraceModel;
-import computationEngine.SparkJob;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DummySparkJob extends SparkJob {
+public class DummySparkJob extends LinkGenerationSparkJob {
     public DummySparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
         super(jobID, sparkMasterUrl, model);
         List<Artifact> fromArtifacts = new ArrayList<>();
