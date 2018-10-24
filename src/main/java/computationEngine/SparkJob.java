@@ -22,7 +22,6 @@ public class SparkJob implements Runnable, Serializable {
     private TraceModel model;
     private List<Artifact> fromArtifacts;
     private List<Artifact> toArtifacts;
-    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     public SparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
         this.sparkMasterUrl = sparkMasterUrl;
@@ -37,7 +36,6 @@ public class SparkJob implements Runnable, Serializable {
         conf.setMaster(masterUrl);
         conf.setAppName(jobID);
         SparkSession sparkSession = SparkSession.builder().config(conf).getOrCreate();
-        System.out.println("Session created");
         return sparkSession;
     }
 
@@ -78,12 +76,11 @@ public class SparkJob implements Runnable, Serializable {
     @Override
     public void run() {
         SparkSession sparkSession = getSparkSession(jobID, sparkMasterUrl);
-
         JavaRDD<Artifact> fromArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getFromArtifacts());
         JavaRDD<Artifact> toArtifacts = JavaSparkContext.fromSparkContext(sparkSession.sparkContext()).parallelize(getToArtifacts());
 
         JavaRDD<Link> linkRDD = genCandidateTraceLinks(fromArtifacts, toArtifacts);
-        linkRDD.collect().forEach(x -> logger.debug(x.toString()));
+        linkRDD.collect().forEach(x -> System.out.println(x.toString()));
         sparkSession.stop();
     }
 

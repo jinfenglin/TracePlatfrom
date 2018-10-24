@@ -12,6 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import spring.config.SpringRootConfig;
 
+import static java.lang.Thread.sleep;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringRootConfig.class})
 public class SparkEngineTest {
@@ -25,10 +27,11 @@ public class SparkEngineTest {
     private Environment environment;
 
     @Test
-    public void TestCreateAndExecuteSparkJob() {
+    public void TestCreateAndExecuteSparkJob() throws InterruptedException {
         TraceModel model = traceModelManger.getModel(TraceModelType.DUMMY);
         String sparkUrl = environment.getProperty("spark.master");
         SparkJob exampleJob = new DummySparkJob("exmapleJob", sparkUrl, model);
         sparkJobEngine.submit(exampleJob);
+        Thread.sleep(10000);//Wait till the spark job finish
     }
 }

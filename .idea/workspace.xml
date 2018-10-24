@@ -8,6 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="89e21efd-0865-43c2-b7df-59b386181e9d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java" afterPath="$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java" afterPath="$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/properties/log4j.properties" afterPath="$PROJECT_DIR$/src/main/properties/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/properties/platform.properties" afterPath="$PROJECT_DIR$/src/main/properties/platform.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/SparkEngineTest.java" afterPath="$PROJECT_DIR$/src/test/java/SparkEngineTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,55 +57,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SparkEngineTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/SparkEngineTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DebeziumReceiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/messageDeliver/DebeziumReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3715#3716#0" expanded="true" />
-                <element signature="e#3752#3753#0" expanded="true" />
-                <element signature="e#3797#3798#0" expanded="true" />
-                <element signature="e#3839#3840#0" expanded="true" />
-                <element signature="e#3956#3957#0" expanded="true" />
-                <element signature="e#3995#3996#0" expanded="true" />
-                <element signature="e#4025#4026#0" expanded="true" />
-                <element signature="e#4069#4070#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DebeziumEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/messageDeliver/DebeziumEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="74" column="39" lean-forward="false" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="39" />
-              <folding>
-                <element signature="method#toString#0;class#DebeziumEvent#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SpringRootConfig.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+            <state relative-caret-position="-85">
+              <caret line="53" column="63" lean-forward="false" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SparkEngineTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/SparkEngineTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="61" lean-forward="true" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SparkJob.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="935">
+              <caret line="83" column="28" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DummySparkJob.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/DummySparkJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -109,22 +100,19 @@
       <file leaf-file-name="platform.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/properties/platform.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Readme.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="17">
-                <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/properties/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,8 +120,8 @@
       <file leaf-file-name="SparkJobEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJobEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="153">
+              <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#425#426#0" expanded="true" />
@@ -174,7 +162,6 @@
       <find>spark en</find>
       <find>model</find>
       <find>main</find>
-      <find>run</find>
       <find>genCandidateTraceLinks</find>
       <find>start model</find>
       <find>Dummy policy is running</find>
@@ -187,6 +174,7 @@
       <find>cancel</find>
       <find>purge</find>
       <find>dummy polic</find>
+      <find>run</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -202,7 +190,6 @@
       <list>
         <option value="$PROJECT_DIR$/lib/spring-beans-4.3.18.RELEASE.jar!/org/springframework/beans/factory/FactoryBean.class" />
         <option value="$PROJECT_DIR$/lib/spring-context-4.3.18.RELEASE.jar!/org/springframework/context/annotation/Scope.class" />
-        <option value="$PROJECT_DIR$/src/main/properties/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkExperiment.java" />
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkTaskEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/ComputationEngine.java" />
@@ -240,17 +227,18 @@
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/Model/ModelUpdatePolicy/DummyPolicy.java" />
         <option value="$PROJECT_DIR$/docker-compose-files/docker-compose.yml" />
         <option value="$PROJECT_DIR$/src/main/java/messageDeliver/DebeziumReceiver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java" />
-        <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkJobEngine.java" />
         <option value="$PROJECT_DIR$/src/test/java/TestBase/DummySparkJob.java" />
-        <option value="$PROJECT_DIR$/src/test/java/SparkEngineTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/DummySparkJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/spring/services/PlatformMainService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkJobMaker.java" />
         <option value="$PROJECT_DIR$/src/main/java/spring/services/TIMGraph.java" />
-        <option value="$PROJECT_DIR$/src/main/properties/platform.properties" />
         <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/src/main/properties/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkJobEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/properties/platform.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java" />
+        <option value="$PROJECT_DIR$/src/test/java/SparkEngineTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java" />
       </list>
     </option>
   </component>
@@ -332,6 +320,76 @@
             <path>
               <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
               <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="properties" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="TIM" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TracePlatfrom" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TracePlatfrom" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2174,39 +2232,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 36m 29s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 47m 14s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 39m 33s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 49m 06s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 41m 12s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 50m 15s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 41m 59s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 52m 25s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 43m 27s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 54m 27s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest - 2018.10.23 at 15h 44m 41s.xml">
+    <history-entry file="SparkEngineTest - 2018.10.24 at 10h 56m 32s.xml">
       <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest_TestCreateAndExecuteSparkJob - 2018.10.23 at 10h 58m 33s.xml">
-      <configuration name="SparkEngineTest.TestCreateAndExecuteSparkJob" configurationId="JUnit" />
+    <history-entry file="SparkEngineTest - 2018.10.24 at 11h 03m 04s.xml">
+      <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest_TestCreateAndExecuteSparkJob - 2018.10.23 at 11h 02m 39s.xml">
-      <configuration name="SparkEngineTest.TestCreateAndExecuteSparkJob" configurationId="JUnit" />
+    <history-entry file="SparkEngineTest - 2018.10.24 at 11h 04m 45s.xml">
+      <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest_TestCreateAndExecuteSparkJob - 2018.10.23 at 11h 04m 52s.xml">
-      <configuration name="SparkEngineTest.TestCreateAndExecuteSparkJob" configurationId="JUnit" />
+    <history-entry file="SparkEngineTest - 2018.10.24 at 11h 12m 27s.xml">
+      <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SparkEngineTest_TestCreateAndExecuteSparkJob - 2018.10.23 at 11h 16m 26s.xml">
-      <configuration name="SparkEngineTest.TestCreateAndExecuteSparkJob" configurationId="JUnit" />
+    <history-entry file="SparkEngineTest - 2018.10.24 at 11h 14m 55s.xml">
+      <configuration name="SparkEngineTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141480000" />
+    <option name="totallyTimeSpent" value="145308000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2231,7 +2289,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23510292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39219934" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2293,7 +2351,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="44" />
+      <option name="time" value="50" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JettyConfiguration">
@@ -2315,20 +2373,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/Model/DataSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="42" lean-forward="false" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/Model/DataEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/Artifact.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -2340,13 +2384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/properties/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -2454,6 +2491,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="38" column="31" lean-forward="false" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2461,6 +2499,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2482,13 +2521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="9" column="56" lean-forward="true" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/spring/config/WebConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2523,14 +2555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5622">
           <caret line="1758" column="51" lean-forward="false" selection-start-line="1758" selection-start-column="46" selection-end-line="1758" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/spring-core-4.3.18.RELEASE.jar!/org/springframework/core/task/TaskExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2598,64 +2622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/DummySparkJob.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="5" lean-forward="true" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/DummySparkJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJobEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#476#477#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#559#560#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/spring/services/TIMGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="29" column="77" lean-forward="true" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/spring/services/PlatformMainService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="49" column="47" lean-forward="false" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -2670,24 +2640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SparkEngineTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/properties/platform.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -2696,6 +2648,119 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/spark/spark-core_2.11/2.3.0/spark-core_2.11-2.3.0.jar!/org/apache/spark/SparkConf.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2217">
+          <caret line="989" column="11" lean-forward="false" selection-start-line="989" selection-start-column="11" selection-end-line="989" selection-end-column="11" />
+          <folding>
+            <element signature="e#59978#59979#0" expanded="true" />
+            <element signature="e#60004#60005#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/DummySparkJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-core-4.3.18.RELEASE.jar!/org/springframework/core/task/TaskExecutor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJobEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#523#524#0" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spring/config/WebConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spring/services/PlatformMainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="49" column="47" lean-forward="false" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/properties/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/properties/platform.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="54" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spring/services/TIMGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="29" column="77" lean-forward="true" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spring/config/SpringRootConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="53" column="63" lean-forward="false" selection-start-line="53" selection-start-column="63" selection-end-line="53" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/SparkEngineTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="61" lean-forward="true" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/computationEngine/SparkJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="83" column="28" lean-forward="true" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

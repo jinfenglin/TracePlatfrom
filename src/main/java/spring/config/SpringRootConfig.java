@@ -45,11 +45,13 @@ public class SpringRootConfig {
 
     @Bean
     public TaskExecutor threadPoolTaskExecutor() {
+        boolean waitForTaskCompleteOnShutdown = Boolean.valueOf(environment.getProperty("platform.taskExecutor.waitForTasksToCompleteOnShutdown"));
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(4);
         executor.setMaxPoolSize(4);
         executor.setThreadNamePrefix("default_task_executor_thread");
         executor.initialize();
+        executor.setWaitForTasksToCompleteOnShutdown(waitForTaskCompleteOnShutdown);
         return executor;
     }
 
