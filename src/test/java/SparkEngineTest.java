@@ -5,7 +5,7 @@ import computationEngine.Model.TraceModelType;
 import computationEngine.SparkJobs.LinkPrintSparkJob;
 import computationEngine.SparkJobs.LinkGenerationSparkJob;
 import computationEngine.SparkJobEngine.SparkJobEngine;
-import computationEngine.SparkJobs.SparkJob;
+import computationEngine.SparkJobs.ISparkJob.SparkJob;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

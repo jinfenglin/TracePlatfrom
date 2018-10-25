@@ -3,28 +3,28 @@ package computationEngine.SparkJobs;
 import computationEngine.Artifact;
 import computationEngine.Link;
 import computationEngine.Model.TraceModel;
+import computationEngine.SparkJobs.ISparkJob.LinkRDDProvider;
+import computationEngine.SparkJobs.ISparkJob.SparkJob;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.PairFunction;
 import org.apache.spark.sql.SparkSession;
-import scala.Serializable;
 import scala.Tuple2;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 
-public class LinkGenerationSparkJob implements SparkJob {
+public class LinkGenerationSparkJob implements LinkRDDProvider {
     private String jobID;
     private String sparkMasterUrl;
     private TraceModel model;
     private List<Artifact> fromArtifacts;
     private List<Artifact> toArtifacts;
     private SparkSession sparkSession;
-    public JavaRDD<Link> linkRDD;
+    private JavaRDD<Link> linkRDD;
 
     public LinkGenerationSparkJob(String jobID, String sparkMasterUrl, TraceModel model) {
         this.sparkMasterUrl = sparkMasterUrl;
@@ -123,5 +123,10 @@ public class LinkGenerationSparkJob implements SparkJob {
 
     public void setToArtifacts(List<Artifact> toArtifacts) {
         this.toArtifacts = toArtifacts;
+    }
+
+    @Override
+    public JavaRDD<Link> getLinkRDD() {
+        return linkRDD;
     }
 }

@@ -1,6 +1,6 @@
 package computationEngine.SparkJobEngine;
 
-import computationEngine.SparkJobs.SparkJob;
+import computationEngine.SparkJobs.ISparkJob.SparkJob;
 import computationEngine.SparkJobs.SparkJobMaker;
 import org.spark_project.jetty.util.BlockingArrayQueue;
 import org.springframework.beans.factory.annotation.Autowired;

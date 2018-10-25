@@ -1,6 +1,6 @@
 package computationEngine.SparkJobEngine;
 
-import computationEngine.SparkJobs.SparkJob;
+import computationEngine.SparkJobs.ISparkJob.SparkJob;
 
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;

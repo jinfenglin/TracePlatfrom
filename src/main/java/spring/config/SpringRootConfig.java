@@ -5,7 +5,7 @@ import computationEngine.Model.ModelUpdatePolicy.DummyPolicy;
 import computationEngine.Model.ModelUpdatePolicy.TModelUpdatePolicy;
 import computationEngine.Model.ModelUpdatePolicy.UpdatePolicyType;
 import computationEngine.Model.TraceModelManger;
-import computationEngine.SparkJobs.SparkJob;
+import computationEngine.SparkJobs.ISparkJob.SparkJob;
 import messageDeliver.DebeziumReceiver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
