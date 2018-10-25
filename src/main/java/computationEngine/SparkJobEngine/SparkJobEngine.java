@@ -35,9 +35,6 @@ public class SparkJobEngine {
     public SparkJobEngine() {
         runningJobs = Collections.synchronizedMap(new HashMap<SparkJob, Future<SparkJob>>());
         waitingList = new BlockingArrayQueue<>();
-        int MAX_WORK_NUM = Integer.valueOf(environment.getProperty("platform.executorService.maxThread"));
-        maintainer = new SparkJobEngineMaintainer(runningJobs, waitingList, threadPoolTaskExecutor, MAX_WORK_NUM);
-        maintainerThread = new Thread(maintainer);
     }
 
     /**
@@ -67,6 +64,9 @@ public class SparkJobEngine {
      * Start the spark job engine to submit
      */
     public void start() {
+        int MAX_WORK_NUM = Integer.valueOf(environment.getProperty("platform.executorService.maxThread"));
+        maintainer = new SparkJobEngineMaintainer(runningJobs, waitingList, threadPoolTaskExecutor, MAX_WORK_NUM);
+        maintainerThread = new Thread(maintainer);
         maintainerThread.start();
     }
 

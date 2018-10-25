@@ -21,7 +21,7 @@ public class LinkPrintSparkJob implements SparkJob {
     @Override
     public LinkPrintSparkJob call() throws Exception {
         getSession();
-
+        linkGenJob.call();
         linkGenJob.linkRDD.collect().forEach(x -> System.out.println(x.toString()));
         return this;
     }
